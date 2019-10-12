@@ -10,7 +10,11 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.ArrayList;
 
+import com.atapro.BuildConfig;
+import com.atapro.R;
 
+// react-native-maps
+import com.airbnb.android.react.maps.MapsPackage;
 
 public class PackageList {
   private Application application;
@@ -43,7 +47,8 @@ public class PackageList {
 
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
-      new MainReactPackage()
+      new MainReactPackage(),
+      new MapsPackage()
     ));
   }
 }
