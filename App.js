@@ -27,6 +27,8 @@ import {
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 
+import RNFetchBlob from 'react-native-fetch-blob'
+
 const App: () => React$Node = () => {
   return (
     <>

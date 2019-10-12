@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import com.atapro.BuildConfig;
 import com.atapro.R;
 
+// react-native-fetch-blob
+import com.RNFetchBlob.RNFetchBlobPackage;
 // react-native-maps
 import com.airbnb.android.react.maps.MapsPackage;
 
@@ -48,6 +50,7 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(),
+      new RNFetchBlobPackage(),
       new MapsPackage()
     ));
   }
