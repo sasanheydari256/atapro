@@ -13,10 +13,22 @@ import java.util.ArrayList;
 import com.atapro.BuildConfig;
 import com.atapro.R;
 
+// @react-native-community/async-storage
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 // react-native-fetch-blob
 import com.RNFetchBlob.RNFetchBlobPackage;
+// react-native-gesture-handler
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-maps
 import com.airbnb.android.react.maps.MapsPackage;
+// react-native-permissions
+import com.reactnativecommunity.rnpermissions.RNPermissionsPackage;
+// react-native-pushe
+import com.reactlibrary.RNPushePackage;
+// react-native-restart
+import com.avishayil.rnrestart.ReactNativeRestartPackage;
+// react-native-vector-icons
+import com.oblador.vectoricons.VectorIconsPackage;
 
 public class PackageList {
   private Application application;
@@ -50,8 +62,14 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(),
+      new AsyncStoragePackage(),
       new RNFetchBlobPackage(),
-      new MapsPackage()
+      new RNGestureHandlerPackage(),
+      new MapsPackage(),
+      new RNPermissionsPackage(),
+      new RNPushePackage(),
+      new ReactNativeRestartPackage(),
+      new VectorIconsPackage()
     ));
   }
 }

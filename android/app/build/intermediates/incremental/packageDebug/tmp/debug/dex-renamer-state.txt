@@ -1,4 +1,4 @@
-#Sun Oct 13 01:35:06 IRST 2019
+#Mon Oct 14 00:16:33 IRST 2019
 base.0=/home/farhad/Documents/rn/atapro/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
