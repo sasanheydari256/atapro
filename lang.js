@@ -3,10 +3,10 @@ import { AsyncStorage } from "react-native";
 export const lang = async ()=>{
     try {
         const lang  = await AsyncStorage.getItem("lang")
-        const strings = langs[lang || "fa"] 
+        const strings = langs[lang || "fa"]
         return strings
     } catch (error) {
-        
+
     }
 }
 
@@ -31,6 +31,9 @@ const langs = {
         subCategorySelection:{
             TITLE : "خدمات",
             NEXT_STEP : "مرحله بعد"
+        },
+        tarikhtheKhadamat:{
+            TITLE : "تاریخچه خدمات"
         },
         mapCenter:{
             TITLE : "خدمت دهندگان",
