@@ -1,4 +1,4 @@
-import {View,Text,StyleSheet} from 'react-native'
+import {View,Text,StyleSheet,Image} from 'react-native'
 import React,{Component} from 'react'
 export default class Ata extends Component{
     componentDidMount(){
@@ -10,7 +10,12 @@ export default class Ata extends Component{
         return(
 
                 <View style={styles.Container}>
-                    <Text style={styles.Text}>اپلیکیشن اطا</Text>
+                <Image
+                  style={{flex:1, height: 200, width: 200}}
+                    source={require('./../../assets/images/ata-02.png')}
+                      resizeMode="contain"
+                      />
+                      <Text>اپلیکیشن اطا</Text>
                 </View>
 
         )

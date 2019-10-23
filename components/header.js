@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Platform,ActivityIndicator,View } from "react-native";
-import {  Header, Left, Body, Right, Button, Icon } from 'native-base';
+import {  Header, Left, Body, Right, Button } from 'native-base';
 import { withNavigation } from 'react-navigation';
 import EStyleSheet from "react-native-extended-stylesheet";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { CText as Text} from "./customComponents";
 import styles from 'rn-sliding-up-panel/libs/styles';
+import Icon from 'react-native-vector-icons/Feather';
+
 
 class NavHeader extends Component{
     render() {
@@ -24,7 +26,7 @@ class NavHeader extends Component{
                 </View>
 
                 <View style={{ justifyContent:"center",alignItems:"center" }}>
-                    <Button transparent  onPress={()=> this.props.navigation.goBack()} disabled={backDisabled}><Icon name="arrow-back" style={[style.icon,backDisabled && {opacity:0}]}/></Button>
+                    <Button transparent  onPress={()=> this.props.navigation.goBack()} disabled={backDisabled}><Icon name="arrow-left" style={[style.icon,backDisabled && {opacity:0}]}/></Button>
                 </View>
             </View>
         )

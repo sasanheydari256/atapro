@@ -15,7 +15,7 @@ const _ = require("lodash");
 class Item extends PureComponent{
     render() {
         // const { CategoryId,Name,Image,price,onPress,selectedItem } = this.props
-        const {   CatRequest,Rate,ServiceMan,DateTime,Image,ServicemanPhone } = this.props
+        const {   CatRequest,Rate,ServiceMan,DateTime,Image,ServicemanPhone,Address } = this.props
 
 
         return (
@@ -26,6 +26,7 @@ class Item extends PureComponent{
                     <Text style={styles.itemName} numberOfLines={1}>{EnToFa(CatRequest)}</Text>
                     <Text style={styles.itemName}> {EnToFa(ServiceMan)}</Text>
                     <Text style={styles.itemName}> {EnToFa(DateTime)}</Text>
+                      <Text style={styles.itemName}>آدرس: {EnToFa(Address)}</Text>
 
                 </View>
             </TouchableOpacity>
@@ -58,7 +59,7 @@ class TarikhteKhadamat extends Component{
                 'Content-Type': 'application/json'},
         }).then((res) => res.json())
                 .then((list)=>{
-                console.log(list);
+                // console.log(list);
                 this.setState({
                   list: list
                 });
@@ -95,7 +96,7 @@ class TarikhteKhadamat extends Component{
                   <FlatList
                       data={list}
 
-                      renderItem={({item})=> <Item DateTime={item.DateTime} CatRequest={item.CatRequest} ServiceMan={item.ServiceMan} Image={item.Image} />}
+                      renderItem={({item})=> <Item DateTime={item.DateTime} CatRequest={item.CatRequest} ServiceMan={item.ServiceMan} Image={item.Image} Address={item.Address} />}
 
                       keyExtractor={(item, index) => index.toString()}
                       style={{ height: "100%" }}

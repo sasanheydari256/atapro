@@ -12,8 +12,8 @@ class Splash extends Component{
                 this.props.navigation.replace("Login")
             }
 
-        },1000)
-    }z
+        },6000)
+    }
     render() {
         return (
             <View>
@@ -21,7 +21,7 @@ class Splash extends Component{
             </View>
         );
     }
-} 
+}
 const state = state=>({
     configs:state.configs
 })

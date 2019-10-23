@@ -37,17 +37,18 @@ class MapCenter extends Component{
                 latitudeDelta: 0.0111,
                 longitudeDelta: 0.0111
             }),
-            
+
             list:[],
             loading:false,
             selectedItem:null,
             selectedLocation:null,
-    
+
             sendRequestModalVisible:false,
             sendRequestLoading:false,
             address:"",
             requestWaitingModal:false,
-            strings:{}
+            strings:{},
+            locationPermissionErr:true
         }
 
         this.item = this.props.navigation.getParam("item",{});
@@ -57,25 +58,25 @@ class MapCenter extends Component{
     async componentDidMount(){
         try {
             const langs = await lang()
-            const strings = { 
+            const strings = {
                 ...langs.mapCenter,
-                ...langs.globals 
+                ...langs.globals
             };
             this.setState({ strings })
         } catch (error) {
-            
+
         }
 
         this._getLocation();
     }
-    
+
     _getLocation = ()=>{
         const _get = ()=>{
             this.setState({ locationLoading:true,locationErr:false })
             navigator.geolocation.getCurrentPosition(
                 position => {
                     const { latitude,longitude } = position.coords;
-                    this.setState({ 
+                    this.setState({
                         region: new AnimatedRegion({
                             // latitude,
                             // longitude,
@@ -96,48 +97,48 @@ class MapCenter extends Component{
         }
 
 
-        Permissions.check('location').then(response => {
-            if(response == "denied"){
-              this.setState({ locationPermissionErr:true })
-              return
-            }
-            else if(response != "authorized"){
-              Permissions.request('location').then(response => {
-                
-              }).catch(err=> alert(err))
-            }else{
-                _get();
-            }
-        }).catch((err) => {})
+        // Permissions.check('location').then(response => {
+        //     if(response == "denied"){
+        //       this.setState({ locationPermissionErr:false })
+        //       return
+        //     }
+        //     else if(response != "authorized"){
+        //       Permissions.request('location').then(response => {
+        //
+        //       }).catch(err=> alert(err))
+        //     }else{
+        //         _get();
+        //     }
+        // }).catch((err) => {})
     }
 
     _itemPressed = center => {
         const { selectedItem } = this.state
         const { Lat,Long,ServiceId } = center
-        this.setState({ 
+        this.setState({
             region: new AnimatedRegion({
                 latitude: Lat,
                 longitude: Long,
                 latitudeDelta: 0.0111,
                 longitudeDelta: 0.0111
             }),
-            selectedItem:selectedItem == ServiceId ? null : ServiceId 
+            selectedItem:selectedItem == ServiceId ? null : ServiceId
         });
     }
 
     _updateMarkedLocation = LatLong => {
-        this.setState({ 
+        this.setState({
             selectedLocation:LatLong,
             region:new AnimatedRegion({
                 ...LatLong,
                 latitudeDelta: 0.0111,
                 longitudeDelta: 0.0111
             }),
-            
+
         },this._getList)
 
         ReverseGeocoding(LatLong,
-            (data)=>{ 
+            (data)=>{
                 if(data.status == "OK" && data.results.length > 0){
                     const address = data.results[0].formatted_address;
                     this.setState({ address })
@@ -170,9 +171,9 @@ class MapCenter extends Component{
             ()=>{ this.setState({ sendRequestLoading:false }) },
         )
     }
-    
+
     render() {
-        const { 
+        const {
             region,list,loading,selectedItem,selectedLocation,address,
             sendRequestModalVisible,sendRequestLoading,requestWaitingModal
         } = this.state
@@ -188,11 +189,11 @@ class MapCenter extends Component{
                         onLongPress={e=> this._updateMarkedLocation(e.nativeEvent.coordinate)}
                     >
                         {_.map(list,center=> <Marker coordinate={{ latitude: center.Lat ,longitude: center.Long }} key={center.ServiceId} title={center.centerName}/> )}
-                        {selectedLocation && 
-                            <Marker 
-                                coordinate={{ latitude: selectedLocation.latitude ,longitude: selectedLocation.longitude }} 
-                                key={"000"} 
-                                draggable 
+                        {selectedLocation &&
+                            <Marker
+                                coordinate={{ latitude: selectedLocation.latitude ,longitude: selectedLocation.longitude }}
+                                key={"000"}
+                                draggable
                                 onDragEnd={e=> this._updateMarkedLocation(e.nativeEvent.coordinate)}
                                 pinColor="#4ba7fd"
                             />
@@ -208,7 +209,7 @@ class MapCenter extends Component{
                     </View>
                 </View>
 
-                <RNModal 
+                <RNModal
                     isVisible={sendRequestModalVisible}
                     onBackButtonPress={()=> this.setState({ sendRequestModalVisible:false })}
                     onBackdropPress={()=> this.setState({ sendRequestModalVisible:false })}

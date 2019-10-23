@@ -13,7 +13,7 @@ class Login extends Component{
     constructor(props){
         super(props);
         this.state = {
-            number:"09353830543",
+            number:"",
             numberErr:false,
             sendNumberLoading:false,
 
@@ -23,19 +23,19 @@ class Login extends Component{
             sendConfirmNumberLoading:false,
             strings:{}
         }
-        
+
     }
-    
+
     async componentDidMount(){
         try {
             const langs = await lang()
-            const strings = { 
+            const strings = {
                 ...langs.login,
-                ...langs.globals 
+                ...langs.globals
             };
             this.setState({ strings })
         } catch (error) {
-            
+
         }
     }
 
@@ -85,31 +85,35 @@ class Login extends Component{
         )
     }
 
+    clearText (){
+      this.setState({number:""})
+    }
+
     render() {
         const { number,numberErr,sendNumberLoading,confirmModalVisible,confirmNumber,confirmNumberErr,sendConfirmNumberLoading } = this.state
         const { RECEIVE_CODE,CONFIRM_CODE,LOGIN } = this.state.strings
         return (
             <Container showMenu={false} style={{ flex:1 }}>
                 <ImageBackground source={require("./../../assets/images/loginBG.png")} style={{ flex:1,justifyContent:"center" }} resizeMode="cover">
-                    <TextInput error={numberErr} placeholder='09xxxxxxxxx' keyboardType="numeric" onChangeText={val=> this.setState({number:FaToEn(val)})} value={EnToFa(number)} style={styles.textInput}/>
+                    <TextInput error={numberErr} placeholder='09xxxxxxxxx' keyboardType="numeric"  onChangeText={val=> this.setState({number:FaToEn(val)})} value={EnToFa(number)} style={styles.textInput}/>
                     <Button title={RECEIVE_CODE} loading={sendNumberLoading} onPress={this._submit}/>
                 </ImageBackground>
-                
 
-                <Modal 
+
+                <Modal
                     isVisible={confirmModalVisible}
                     onBackButtonPress={()=> this.setState({ confirmModalVisible:false })}
                     onBackdropPress={()=> this.setState({ confirmModalVisible:false })}
                 >
                     <View style={styles.modalContainer}>
-                        <TextInput keyboardType={"numeric"} error={confirmNumberErr} placeholder={CONFIRM_CODE} onChangeText={val=> this.setState({confirmNumber:FaToEn(val)})} value={EnToFa(confirmNumber)} style={styles.textInput}/>
+                        <TextInput keyboardType={"numeric"} error={confirmNumberErr} placeholder={CONFIRM_CODE} onChangeText={val=> this.setState({confirmNumber:FaToEn(val)})} value={EnToFa(confirmNumber)} style={styles.textInput} onPress={this.clearText}/>
                         <Button title={LOGIN} loading={sendConfirmNumberLoading} onPress={this._confirm}/>
                     </View>
                 </Modal>
             </Container>
         );
     }
-} 
+}
 
 const styles = EStyleSheet.create({
     textInput:{ textAlign:"center" },

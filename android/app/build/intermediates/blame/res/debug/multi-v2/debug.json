@@ -761,21 +761,6 @@
             ]
         },
         {
-            "outputFile": "/home/farhad/Documents/rn/atapro/android/app/build/intermediates/res/merged/debug/values-land_values-land.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/farhad/.gradle/caches/transforms-2/files-2.1/a698840952bbe84a21c1091f9576eca4/res/values-land/values-land.xml",
-                    "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,125,196",
-                        "endColumns": "69,70,67",
-                        "endOffsets": "120,191,259"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/home/farhad/Documents/rn/atapro/android/app/build/intermediates/res/merged/debug/values-is_values-is.arsc.flat",
             "map": [
                 {
@@ -895,6 +880,21 @@
                         "startOffsets": "105,205,302,414,499,600,714,794,874,965,1058,1154,1248,1355,1448,1543,1638,1729,1823,1904,2014,2122,2220,2329,2428,2531,2686,6218",
                         "endColumns": "99,96,111,84,100,113,79,79,90,92,95,93,106,92,94,94,90,93,80,109,107,97,108,98,102,154,97,80",
                         "endOffsets": "200,297,409,494,595,709,789,869,960,1053,1149,1243,1350,1443,1538,1633,1724,1818,1899,2009,2117,2215,2324,2423,2526,2681,2779,6294"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/farhad/Documents/rn/atapro/android/app/build/intermediates/res/merged/debug/values-land_values-land.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/farhad/.gradle/caches/transforms-2/files-2.1/a698840952bbe84a21c1091f9576eca4/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
                     }
                 }
             ]
@@ -3803,21 +3803,6 @@
             ]
         },
         {
-            "outputFile": "/home/farhad/Documents/rn/atapro/android/app/build/intermediates/res/merged/debug/values-night-v8_values-night-v8.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/farhad/.gradle/caches/transforms-2/files-2.1/a698840952bbe84a21c1091f9576eca4/res/values-night-v8/values-night-v8.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,125,209,293,389,491,593",
-                        "endColumns": "69,83,83,95,101,101,93",
-                        "endOffsets": "120,204,288,384,486,588,682"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/home/farhad/Documents/rn/atapro/android/app/build/intermediates/res/merged/debug/values-sw_values-sw.arsc.flat",
             "map": [
                 {
@@ -3937,6 +3922,21 @@
                         "startOffsets": "6461",
                         "endColumns": "100",
                         "endOffsets": "6557"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/farhad/Documents/rn/atapro/android/app/build/intermediates/res/merged/debug/values-night-v8_values-night-v8.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/farhad/.gradle/caches/transforms-2/files-2.1/a698840952bbe84a21c1091f9576eca4/res/values-night-v8/values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593",
+                        "endColumns": "69,83,83,95,101,101,93",
+                        "endOffsets": "120,204,288,384,486,588,682"
                     }
                 }
             ]

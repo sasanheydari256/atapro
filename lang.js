@@ -46,6 +46,15 @@ const langs = {
         settings:{
             TITLE:"پروفایل",
             NAME_PLACEHOLDER:"نام و نام خانوادگی"
+        },
+        darbarema:{
+          TITLE:"درباره ما",
+        },
+        contact:{
+          TITLE:" تماس با ما"
+        },
+        ghavanin:{
+          TITLE:"قوانین"
         }
     }
 }
